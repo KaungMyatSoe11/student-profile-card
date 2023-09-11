@@ -12,6 +12,7 @@ const StudentProvider = ({ children }) => {
       student_data: { name: "Kaung Myat Soe", age: "25" },
     },
   ]);
+  const [editStudent, setEditStudent] = useState({});
 
   const DeleteHandler = (id) => {
     console.log(id);
@@ -19,8 +20,32 @@ const StudentProvider = ({ children }) => {
     setStudents([...filterData]);
   };
 
+  const editStudentModal = (id) => {
+    const student = students.find((st) => st.id == id);
+    setEditStudent(student);
+  };
+
+  const UpdateStudent = (student) => {
+    const changeData = students.map((st) => {
+      if (st.id == student.id) {
+        return student;
+      }
+      return st;
+    });
+    setStudents([...changeData])
+  };
+
   return (
-    <StudentContext.Provider value={{students, setStudents,DeleteHandler}}>
+    <StudentContext.Provider
+      value={{
+        students,
+        setStudents,
+        DeleteHandler,
+        editStudentModal,
+        editStudent,
+        UpdateStudent,
+      }}
+    >
       {children}
     </StudentContext.Provider>
   );
