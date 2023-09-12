@@ -26,7 +26,6 @@ const StudentForm = () => {
   };
   const FormSubmitHandler = (e) => {
     e.preventDefault();
-    checkValue(refName);
 
     if (checkValue(refName) && checkValue(refAge)) {
       const idGenerate = Math.round(Math.random() * 10000000);
