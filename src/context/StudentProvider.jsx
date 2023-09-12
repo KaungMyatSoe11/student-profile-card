@@ -10,7 +10,7 @@ const StudentProvider = ({ children }) => {
     console.log("redender again");
     if(students.length==0){
       const data=JSON.parse(localStorage.getItem("st_d"))
-      setStudents(data)
+      data && setStudents(data)
     }
   }, [])
   
