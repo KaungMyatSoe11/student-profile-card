@@ -36,6 +36,8 @@ const StudentForm = () => {
         student_data: { name, age },
       };
       setStudents([...students, newStudent]);
+      //** add localstorage */
+      localStorage.setItem("st_d",JSON.stringify([...students, newStudent]))
       frmReset();
     }
   };
