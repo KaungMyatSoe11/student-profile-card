@@ -1,9 +1,7 @@
 import {
   BrowserRouter,
   Route,
-  RouterProvider,
   Routes,
-  createBrowserRouter,
 } from "react-router-dom";
 import "./App.css";
 import Home from "./container/Home/Index";
@@ -11,6 +9,7 @@ import Student from "./container/Student/Index";
 import ToDoPage from "./container/ToDoPage/Index";
 import Counter from "./container/Counter/Index";
 import Header from "./components/Header";
+import StudentProfileContainer from "./container/Student/StudentProfileContainer";
 
 function App() {
   // const router = createBrowserRouter([
@@ -38,7 +37,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/student" element={<Student />} />
+          <Route path="student" >
+            <Route path="" element={<Student />}/>
+            <Route path=":studentId" element={<StudentProfileContainer />} />
+          </Route>
           <Route path="/counter" element={<Counter />} />
           <Route path="/todo" element={<ToDoPage />} />
         </Routes>

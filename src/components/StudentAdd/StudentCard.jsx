@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { MdDelete, MdOutlineEditNote } from "react-icons/md";
 import { StudentContext } from "../../context/StudentProvider";
 import EditModal from "./EditModal";
+import { Link } from "react-router-dom";
 
 const StudentCard = ({ img_url, student_data, id }) => {
   const { DeleteHandler,editStudentModal } = useContext(StudentContext);
@@ -13,12 +14,15 @@ const StudentCard = ({ img_url, student_data, id }) => {
   console.log("card");
   return (
     <div className="basis-[32%]">
+      
       <div>
+        <Link to={"/student/"+id}>
         <img
           className="w-full"
           src={img_url ? img_url : default_image}
           alt="KMs"
-        />
+          />
+          </Link>
       </div>
       <div>
         <h2>{student_data.name}</h2>
