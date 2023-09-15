@@ -1,14 +1,17 @@
-import { Link } from 'react-router-dom'
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Home = () => {
+  const { isAuth } = useContext(AuthContext);
+  console.log(isAuth);
   return (
     <div>
-        <Link to="/" className='py-2 px-3 bg-slate-500 text-white mx-4'>Home</Link>
-        <Link to="/counter" className='py-2 px-3 bg-slate-500 text-white mx-4'>Counter</Link>
-        <Link to="/todo" className='py-2 px-3 bg-slate-500 text-white mx-4'>Todo</Link>
-        <Link to="/student" className='py-2 px-3 bg-slate-500 text-white mx-4'>Student</Link>
-    </div>
-  )
-}
+     Home page
 
-export default Home
+      {isAuth ? "log out" : "log in"}
+    </div>
+  );
+};
+
+export default Home;
