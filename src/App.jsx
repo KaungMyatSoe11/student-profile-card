@@ -33,8 +33,8 @@ function App() {
       {/* <RouterProvider router={router} /> */}
       <BrowserRouter>
         <AuthProvider>
-          <LayOut>
-            <Routes>
+          <Routes>
+            <Route element={<LayOut />}>
               <Route path="/" element={<Home />} />
               <Route path="student">
                 <Route path="" element={<Student />} />
@@ -46,8 +46,8 @@ function App() {
               <Route path="/counter" element={<Counter />} />
               <Route path="/todo" element={<ToDoPage />} />
               <Route path="/login" element={<LogIn />} />
-            </Routes>
-          </LayOut>
+            </Route>
+          </Routes>
         </AuthProvider>
       </BrowserRouter>
     </>

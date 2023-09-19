@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import Header from "../../components/Header";
 import { AuthContext } from "../../context/AuthProvider";
 import {
+  Outlet,
   useLocation,
   useMatch,
   useMatches,
@@ -15,11 +16,12 @@ const LayOut = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const path = location.pathname.split("/")[1];
     console.log(path);
     if (path && path!=="login") {
-      if (!isAuth) {
+      if (!isAuth) {//isAuth==false
         navigate("/login");
       }
     }
@@ -29,7 +31,7 @@ const LayOut = ({ children }) => {
   return (
     <main>
       <Header />
-      {children}
+      <Outlet/>
     </main>
   );
 };
